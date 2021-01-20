@@ -1,0 +1,15 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/knowledge-drop",
+  "1.16.3": {
+    "1.0.0": "https://github.com/Crimix/KnowledgeDrop/blob/1.16/CHANGELOG.md"
+  },
+  "1.16.4": {
+    "1.0.0": "https://github.com/Crimix/KnowledgeDrop/blob/1.16/CHANGELOG.md"
+  },
+  "promos": {
+    "1.16.3-latest": "1.0.0",
+    "1.16.3-recommended": "1.0.0",
+    "1.16.4-latest": "1.0.0",
+    "1.16.4-recommended": "1.0.0"
+  }
+}

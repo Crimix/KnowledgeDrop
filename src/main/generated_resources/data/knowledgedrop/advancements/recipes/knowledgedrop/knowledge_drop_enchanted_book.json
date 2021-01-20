@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "knowledgedrop:knowledge_drop_enchanted_book"
+    ]
+  },
+  "criteria": {
+    "has_emeralds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:gems/emerald"
+          }
+        ]
+      }
+    },
+    "has_diamonds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:gems/diamond"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "knowledgedrop:knowledge_drop_enchanted_book"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_emeralds",
+      "has_diamonds",
+      "has_the_recipe"
+    ]
+  ]
+}

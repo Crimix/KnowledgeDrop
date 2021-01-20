@@ -1,0 +1,29 @@
+{
+  "type": "blackdogsmoddinglibrary:shaped_nbt",
+  "pattern": [
+    "geg",
+    "ebe",
+    "dsd"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:book"
+    },
+    "e": {
+      "item": "minecraft:enchanted_book"
+    },
+    "s": {
+      "item": "minecraft:diamond_sword"
+    },
+    "g": {
+      "tag": "forge:gems/emerald"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": "{StoredEnchantments:[{lvl:1s,id:\"knowledgedrop:knowledge_drop\"}]}"
+  }
+}
