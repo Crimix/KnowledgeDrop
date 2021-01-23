@@ -3,12 +3,9 @@ package com.black_dog20.knowledgedrop.common.data;
 import com.black_dog20.bml.datagen.BaseRecipeProvider;
 import com.black_dog20.bml.datagen.crafting.ShapedNBTRecipeBuilder;
 import com.black_dog20.knowledgedrop.KnowledgeDrop;
-import com.black_dog20.knowledgedrop.common.enchantments.ModEnchantments;
-import com.google.common.collect.ImmutableMap;
+import com.black_dog20.knowledgedrop.common.util.Utils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraftforge.common.Tags;
 
@@ -22,9 +19,7 @@ public class GeneratorRecipes extends BaseRecipeProvider {
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-        ItemStack book = Items.ENCHANTED_BOOK.getDefaultInstance();
-        EnchantmentHelper.setEnchantments(ImmutableMap.of(ModEnchantments.KNOWLEDGE_DROP.get(), 1), book);
-        ShapedNBTRecipeBuilder.shapedNBTRecipe(book)
+        ShapedNBTRecipeBuilder.shapedNBTRecipe(Utils.getKnowLedgeDropBook(1))
                 .key('b', Items.BOOK)
                 .key('e', Items.ENCHANTED_BOOK)
                 .key('s', Items.DIAMOND_SWORD)

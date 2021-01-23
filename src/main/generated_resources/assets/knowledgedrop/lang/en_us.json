@@ -1,4 +1,4 @@
 {
   "enchantment.knowledgedrop.knowledge_drop": "Knowledge Drop",
-  "enchantment.knowledgedrop.knowledge_drop.desc": "Mobs will have a chance to drop enchanted books when killed."
+  "enchantment.knowledgedrop.knowledge_drop.desc": "Mobs will have a chance to drop random enchanted books when killed."
 }
