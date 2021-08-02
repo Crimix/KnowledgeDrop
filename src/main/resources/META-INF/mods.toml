@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[34,)"
+loaderVersion="[37,)"
 issueTrackerURL="https://github.com/Crimix/KnowledgeDrop/issues"
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license="All rights reserved"
@@ -8,7 +8,7 @@ license="All rights reserved"
 modId="knowledgedrop"
 version="${file.jarVersion}"
 displayName="Knowledge Drop"
-updateJSONURL="https://raw.githubusercontent.com/Crimix/KnowledgeDrop/1.16/update.json"
+updateJSONURL="https://raw.githubusercontent.com/Crimix/KnowledgeDrop/master/update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/knowledge-drop"
 logoFile="knowledgedrop-logo.png"
 credits="To all my friends for putting up with me breaking the server multiple times during testing"
@@ -18,18 +18,18 @@ description='''Make mobs drop their knowledge as enchantment books'''
 [[dependencies.knowledgedrop]]
     modId="forge"
     mandatory=true
-    versionRange="[34,)"
+    versionRange="[37.0.7,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.knowledgedrop]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3,1.17)"
+    versionRange="[1.17.1,1.18)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.knowledgedrop]]
     modId="blackdogsmoddinglibrary"
     mandatory=true
-    versionRange="[1.1.5,)"
+    versionRange="[1.1.4,)"
     ordering="BEFORE"
     side="BOTH"

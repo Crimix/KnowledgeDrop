@@ -2,9 +2,9 @@ package com.black_dog20.knowledgedrop.common.util;
 
 import com.black_dog20.knowledgedrop.common.enchantments.ModEnchantments;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 public class Utils {
 

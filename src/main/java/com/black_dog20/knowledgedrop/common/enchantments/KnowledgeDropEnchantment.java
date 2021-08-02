@@ -4,17 +4,17 @@ import com.black_dog20.bml.utils.enchantment.EnchantmentUtil;
 import com.black_dog20.bml.utils.math.MathUtil;
 import com.black_dog20.knowledgedrop.Config;
 import com.black_dog20.knowledgedrop.KnowledgeDrop;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentType;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,7 +23,7 @@ import java.util.Random;
 
 public class KnowledgeDropEnchantment extends Enchantment {
 
-    public KnowledgeDropEnchantment(Rarity rarity, EnchantmentType type, EquipmentSlotType... equipmentSlots) {
+    public KnowledgeDropEnchantment(Rarity rarity, EnchantmentCategory type, EquipmentSlot... equipmentSlots) {
         super(rarity, type, equipmentSlots);
     }
 
@@ -38,13 +38,13 @@ public class KnowledgeDropEnchantment extends Enchantment {
     }
 
     @Override
-    public int getMinEnchantability(int enchantmentLevel) {
+    public int getMinCost(int enchantmentLevel) {
         return 15 + (enchantmentLevel - 1) * 9;
     }
 
     @Override
-    public int getMaxEnchantability(int enchantmentLevel) {
-        return super.getMinEnchantability(enchantmentLevel) + 50;
+    public int getMaxCost(int enchantmentLevel) {
+        return super.getMinCost(enchantmentLevel) + 50;
     }
 
     @Mod.EventBusSubscriber(modid = KnowledgeDrop.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -54,14 +54,14 @@ public class KnowledgeDropEnchantment extends Enchantment {
 
         @SubscribeEvent
         public static void onKill(LivingDropsEvent event) {
-            Entity attacker = event.getSource().getTrueSource();
-            if (attacker instanceof PlayerEntity) {
-                ItemStack weapon = ((PlayerEntity) attacker).getHeldItemMainhand();
-                int level = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.KNOWLEDGE_DROP.get(), weapon);
+            Entity attacker = event.getSource().getEntity();
+            if (attacker instanceof Player) {
+                ItemStack weapon = ((Player) attacker).getMainHandItem();
+                int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.KNOWLEDGE_DROP.get(), weapon);
                 if (level > 0) {
-                    World world = event.getEntityLiving().getEntityWorld();
-                    BlockPos pos = event.getEntityLiving().getPosition();
-                    if (!world.isRemote) {
+                    Level world = event.getEntityLiving().getCommandSenderWorld();
+                    BlockPos pos = event.getEntityLiving().blockPosition();
+                    if (!world.isClientSide) {
                         double levelChance = MathUtil.clamp(Config.BASE_PERCENTAGE.get(), 0.01, 0.10) * level;
                         if (chance.nextDouble() <= levelChance) {
                             event.getDrops().add(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), EnchantmentUtil.addRandomEnchantment(new ItemStack(Items.BOOK), true, EnchantmentUtil.Level.RANDOM)));

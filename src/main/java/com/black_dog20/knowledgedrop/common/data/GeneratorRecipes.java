@@ -5,8 +5,8 @@ import com.black_dog20.bml.datagen.crafting.ShapedNBTRecipeBuilder;
 import com.black_dog20.knowledgedrop.KnowledgeDrop;
 import com.black_dog20.knowledgedrop.common.util.Utils;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Items;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
@@ -18,19 +18,19 @@ public class GeneratorRecipes extends BaseRecipeProvider {
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         ShapedNBTRecipeBuilder.shapedNBTRecipe(Utils.getKnowLedgeDropBook(1))
-                .key('b', Items.BOOK)
-                .key('e', Items.ENCHANTED_BOOK)
-                .key('s', Items.DIAMOND_SWORD)
-                .key('g', Tags.Items.GEMS_EMERALD)
-                .key('d', Tags.Items.GEMS_DIAMOND)
-                .patternLine("geg")
-                .patternLine("ebe")
-                .patternLine("dsd")
-                .addCriterion("has_emeralds", hasItem(Tags.Items.GEMS_EMERALD))
-                .addCriterion("has_diamonds", hasItem(Tags.Items.GEMS_DIAMOND))
+                .define('b', Items.BOOK)
+                .define('e', Items.ENCHANTED_BOOK)
+                .define('s', Items.DIAMOND_SWORD)
+                .define('g', Tags.Items.GEMS_EMERALD)
+                .define('d', Tags.Items.GEMS_DIAMOND)
+                .pattern("geg")
+                .pattern("ebe")
+                .pattern("dsd")
+                .unlockedBy("has_emeralds", has(Tags.Items.GEMS_EMERALD))
+                .unlockedBy("has_diamonds", has(Tags.Items.GEMS_DIAMOND))
                 .setItemGroup(KnowledgeDrop.MOD_ID)
-                .build(consumer, RL("knowledge_drop_enchanted_book"));
+                .save(consumer, RL("knowledge_drop_enchanted_book"));
     }
 }
