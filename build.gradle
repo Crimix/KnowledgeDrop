@@ -145,8 +145,6 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
 
-    //compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
-    //runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
     implementation fg.deobf("com.black_dog20.bml:bml:${bml_version}")
     //implementation fg.deobf("curse.maven:bookshelf-228525:${bookshelf_version}")
     //implementation fg.deobf("curse.maven:enchantment-descriptions-250419:${enchantment_descriptions_version}")
