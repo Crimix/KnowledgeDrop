@@ -59,8 +59,8 @@ public class KnowledgeDropEnchantment extends Enchantment {
                 ItemStack weapon = ((Player) attacker).getMainHandItem();
                 int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.KNOWLEDGE_DROP.get(), weapon);
                 if (level > 0) {
-                    Level world = event.getEntityLiving().getCommandSenderWorld();
-                    BlockPos pos = event.getEntityLiving().blockPosition();
+                    Level world = event.getEntity().getCommandSenderWorld();
+                    BlockPos pos = event.getEntity().blockPosition();
                     if (!world.isClientSide) {
                         double levelChance = MathUtil.clamp(Config.BASE_PERCENTAGE.get(), 0.01, 0.10) * level;
                         if (chance.nextDouble() <= levelChance) {

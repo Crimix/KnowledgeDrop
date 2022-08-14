@@ -2,9 +2,9 @@ package com.black_dog20.knowledgedrop.common.data;
 
 import com.black_dog20.knowledgedrop.KnowledgeDrop;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = KnowledgeDrop.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModGenerator {
@@ -19,11 +19,11 @@ public class ModGenerator {
     }
 
     private static void registerServerProviders(DataGenerator generator) {
-        generator.addProvider(new GeneratorRecipes(generator));
+        generator.addProvider(true, new GeneratorRecipes(generator));
     }
 
     private static void registerClientProviders(DataGenerator generator) {
-        generator.addProvider(new GeneratorLanguage(generator));
+        generator.addProvider(true, new GeneratorLanguage(generator));
     }
 
 
