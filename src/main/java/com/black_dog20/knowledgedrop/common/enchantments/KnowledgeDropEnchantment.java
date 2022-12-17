@@ -13,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,7 +56,7 @@ public class KnowledgeDropEnchantment extends Enchantment {
             Entity attacker = event.getSource().getEntity();
             if (attacker instanceof Player) {
                 ItemStack weapon = ((Player) attacker).getMainHandItem();
-                int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.KNOWLEDGE_DROP.get(), weapon);
+                int level = weapon.getEnchantmentLevel(ModEnchantments.KNOWLEDGE_DROP.get());
                 if (level > 0) {
                     Level world = event.getEntity().getCommandSenderWorld();
                     BlockPos pos = event.getEntity().blockPosition();

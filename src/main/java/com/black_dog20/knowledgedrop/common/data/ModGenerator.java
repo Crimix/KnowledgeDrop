@@ -19,7 +19,7 @@ public class ModGenerator {
     }
 
     private static void registerServerProviders(DataGenerator generator) {
-        generator.addProvider(true, new GeneratorRecipes(generator));
+        generator.addProvider(true, new GeneratorRecipes(generator.getPackOutput()));
     }
 
     private static void registerClientProviders(DataGenerator generator) {
