@@ -30,6 +30,9 @@
   "1.19.3": {
     "1.0.1": "https://github.com/Crimix/KnowledgeDrop/blob/1.19.3/CHANGELOG.md"
   },
+  "1.19.4": {
+    "1.0.1": "https://github.com/Crimix/KnowledgeDrop/blob/1.19.4/CHANGELOG.md"
+  },
   "promos": {
     "1.16.3-latest": "1.0.0",
     "1.16.3-recommended": "1.0.0",
@@ -50,6 +53,8 @@
     "1.19.2-latest": "1.0.1",
     "1.19.2-recommended": "1.0.1",
     "1.19.3-latest": "1.0.1",
-    "1.19.3-recommended": "1.0.1"
+    "1.19.3-recommended": "1.0.1",
+    "1.19.4-latest": "1.0.1",
+    "1.19.4-recommended": "1.0.1"
   }
 }

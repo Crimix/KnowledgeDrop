@@ -8,7 +8,7 @@ import net.minecraft.data.DataGenerator;
 public class GeneratorLanguage extends BaseLanguageProvider {
 
     public GeneratorLanguage(DataGenerator gen) {
-        super(gen, KnowledgeDrop.MOD_ID, "en_us");
+        super(gen.getPackOutput(), KnowledgeDrop.MOD_ID, "en_us");
     }
 
     @Override
